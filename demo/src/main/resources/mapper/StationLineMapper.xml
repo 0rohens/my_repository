@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.example.demo.mapper.StationLineMapper">
+ 
+    <select id="getAll" resultType="StationLine">
+        select * from subway_line
+    </select>
+    <select id="ListByLine" parameterType="String" resultType="StationLine">
+        select * from subway_line WHERE subway like #{subway}
+    </select>
+    <select id="ListByStation"  parameterType="String" resultType="StationLine">
+        select * from subway_line WHERE station like #{station}
+    </select>
+    <select id="getInfo"  parameterType="StationQuery" resultType="StationLine">
+        select * from subway_line WHERE station like #{station} AND subway like #{subway}
+    </select>
+</mapper>
